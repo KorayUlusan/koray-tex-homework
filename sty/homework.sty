@@ -1,0 +1,50 @@
+\ProvidesPackage{homework}
+
+% 
+% Written by Koray Ulusan
+% https://github.com/KorayUlusan
+% 
+% 
+
+
+\usepackage{../sty/ornamentos}
+
+\usepackage{color,soul} % https://tex.stackexchange.com/a/141572 for \hl
+\usepackage[none]{hyphenat}
+\usepackage{microtype}
+\usepackage{ulem}
+\usepackage{hyperref} 
+
+% https://tex.stackexchange.com/a/330980
+\pdfstringdefDisableCommands{
+    \def\\{}
+    \def\texttt#1{<#1>}
+    \def\uline#1{<#1>}  
+}
+
+% https://tex.stackexchange.com/a/493978
+\setcounter{secnumdepth}{0}
+
+
+% new commands 
+\newcommand{\question}[1]{\ornamento \vspace{-2.5em} \section{\uline{Aufgabe #1}}}
+\newcommand{\subquestion}[1]{\subsection{\uline{Teil #1}}}
+\newcommand{\subsubquestion}[1]{\subsubsection{\uline{#1}}}
+
+
+
+% highlight texttt
+\newcommand{\hltexttt}[1]{\texttt{\hl{#1}}}
+
+
+
+\definecolor{lightGray}{HTML}{ECF0F3}
+
+% https://tex.stackexchange.com/a/568900
+\usepackage[most]{tcolorbox}
+\tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
+        colframe=lightGray,colback=lightGray,  
+        highlight math style={enhanced} }
+        \newcommand{\bdtexttt}[1]{\tcbox{\texttt{#1}}}
+
+
