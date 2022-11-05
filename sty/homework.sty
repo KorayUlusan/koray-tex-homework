@@ -18,8 +18,7 @@
 \definecolor{ornamentoscolor}{HTML}{538C4A}
 \definecolor{sectioncolor}{HTML}{0E5202}
 \definecolor{backdropcolor}{HTML}{E2F2DF}
-
-\definecolor{highlighcolor}{HTML}{538C4A} % FIXME: not in use
+\definecolor{highlighcolor}{HTML}{E2F2DF}
 
 
 % https://tex.stackexchange.com/a/330980
@@ -54,8 +53,10 @@
 \newcommand{\subsubquestion}[1]{\subsubsection{\uline{#1}}}
 
 
-% highlight texttt, yellow
-\newcommand{\hltexttt}[1]{\texttt{\hl{#1}}}
+
+\sethlcolor{highlighcolor} % package `soul'
+% highlight texttt
+\newcommand{\hltexttt}[1]{\texttt{\hl{#1\:}}}
 
 
 % https://tex.stackexchange.com/a/568900
