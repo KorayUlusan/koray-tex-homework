@@ -9,11 +9,13 @@
 
 \usepackage{../sty/ornamentos}
 
-\usepackage{color,soul} % https://tex.stackexchange.com/a/141572 for \hl
+\usepackage{hyperref} 
 \usepackage[none]{hyphenat}
 \usepackage{microtype}
 \usepackage{ulem}
-\usepackage{hyperref} 
+
+\usepackage{color,soul} % https://tex.stackexchange.com/a/141572 for \hl
+\usepackage[most]{tcolorbox}
 
 \definecolor{ornamentoscolor}{HTML}{538C4A}
 \definecolor{sectioncolor}{HTML}{0E5202}
@@ -37,20 +39,37 @@
 % new commands 
 \newcommand{\question}[1]{
     \ornamento \vspace{-2.5em} 
-    \section{\textcolor{sectioncolor}{
-        \raisebox{-1pt}{{\huge \decoone}} 
-        \uline{Aufgabe #1}
-    }}
+    \noindent 
+    \begin{tcolorbox}[
+        colframe=ornamentoscolor,
+        colback=backdropcolor,
+        left skip=-0.45em,
+        % sharp corners,
+        ]
+        \section{\textcolor{sectioncolor}{
+            \,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} 
+            \uline{Aufgabe #1}
+        }}
+    \end{tcolorbox}
 }
 
 \newcommand{\subquestion}[1]{
-    \subsection{\textcolor{sectioncolor}{
-        \raisebox{1pt}{\aldineleft}
-        \uline{Teil #1}
-    }}
+    \vspace{1em} 
+    \begin{tcolorbox}[
+        colback=backdropcolor,
+        sharp corners,
+        ]
+        \subsection{\textcolor{sectioncolor}{
+            \raisebox{1pt}[10pt][3pt]{\aldineleft}
+            \uline{Teil #1}
+        }}
+    \end{tcolorbox}
+    \vspace{-1em} 
 }
 
-\newcommand{\subsubquestion}[1]{\subsubsection{\uline{#1}}}
+\newcommand{\subsubquestion}[1]{
+    \subsubsection{\;\textcolor{sectioncolor}{\uline{#1}}}
+}
 
 
 
