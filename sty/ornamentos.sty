@@ -10,7 +10,7 @@
 % 
 
 \usepackage{color}
-\definecolor{darkgreen}{RGB}{0,80,0}
+\definecolor{ornamentoscolor}{RGB}{0,80,0}
 
 \usepackage{fourier-orns}
 
@@ -21,7 +21,7 @@
 \newcommand{\ornamento} { % ornamento
     \vspace{1em}
     \noindent 
-    \textcolor{darkgreen}{
+    \textcolor{ornamentoscolor}{
         \hrulefill 
         \raisebox{-2.5pt}[10pt][10pt]{
             \ornamentoleft
@@ -35,7 +35,7 @@
 
 \newcommand{\ornamentoLD}{ % ornamento left dipped
     \noindent  
-    \textcolor{darkgreen}{
+    \textcolor{ornamentoscolor}{
         \raisebox{-1.9pt}[10pt][10pt]{\leafright} 
         \rule{7.6em}{.4pt} % FIXME \hrulefill doest work with raisebox, this 
                           % rule width is short
@@ -48,7 +48,7 @@
 }
 
 \newcommand{\ornamentoRD}{ % ornamento right dipped
-    \noindent \textcolor{darkgreen}{
+    \noindent \textcolor{ornamentoscolor}{
         \raisebox{-1.9pt}[10pt][10pt]{
             \decoone \ornamentoright
         } 
@@ -62,7 +62,7 @@
 }   
 
 % \def\headrule{{ % change headrule
-%         \color{darkgreen}
+%         \color{ornamentoscolor}
 %         \raisebox{-2.1pt}[10pt][10pt]{\leafright} 
 %         \hrulefill 
 %         \

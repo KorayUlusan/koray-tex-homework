@@ -15,35 +15,53 @@
 \usepackage{ulem}
 \usepackage{hyperref} 
 
+\definecolor{ornamentoscolor}{HTML}{538C4A}
+\definecolor{sectioncolor}{HTML}{0E5202}
+\definecolor{backdropcolor}{HTML}{E2F2DF}
+
+\definecolor{highlighcolor}{HTML}{538C4A} % FIXME: not in use
+
+
 % https://tex.stackexchange.com/a/330980
 \pdfstringdefDisableCommands{
     \def\\{}
-    \def\texttt#1{<#1>}
-    \def\uline#1{<#1>}  
+    \def\texttt#1{#1}
+    \def\uline#1{#1}  
+    \def\decoone{}
+    \def\aldineleft{}
 }
 
 % https://tex.stackexchange.com/a/493978
 \setcounter{secnumdepth}{0}
-
+    
 
 % new commands 
-\newcommand{\question}[1]{\ornamento \vspace{-2.5em} \section{\uline{Aufgabe #1}}}
-\newcommand{\subquestion}[1]{\subsection{\uline{Teil #1}}}
+\newcommand{\question}[1]{
+    \ornamento \vspace{-2.5em} 
+    \section{\textcolor{sectioncolor}{
+        \raisebox{-1pt}{{\huge \decoone}} 
+        \uline{Aufgabe #1}
+    }}
+}
+
+\newcommand{\subquestion}[1]{
+    \subsection{\textcolor{sectioncolor}{
+        \raisebox{1pt}{\aldineleft}
+        \uline{Teil #1}
+    }}
+}
+
 \newcommand{\subsubquestion}[1]{\subsubsection{\uline{#1}}}
 
 
-
-% highlight texttt
+% highlight texttt, yellow
 \newcommand{\hltexttt}[1]{\texttt{\hl{#1}}}
 
-
-
-\definecolor{lightGray}{HTML}{ECF0F3}
 
 % https://tex.stackexchange.com/a/568900
 \usepackage[most]{tcolorbox}
 \tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
-        colframe=lightGray,colback=lightGray,  
+        colframe=backdropcolor,colback=backdropcolor,  
         highlight math style={enhanced} }
         \newcommand{\bdtexttt}[1]{\tcbox{\texttt{#1}}}
 
