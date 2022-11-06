@@ -30,7 +30,12 @@
     \def\uline#1{#1}  
     \def\decoone{}
     \def\aldineleft{}
+    \def\noIncludeOutline#1{}
 }
+\newcommand{\noIncludeOutline}[1]{#1} % This is a workaround for:
+%       Token not allowed in a PDF string (Unicode): 
+%       (hyperref) removing `\@ifnextchar'.
+
 
 % https://tex.stackexchange.com/a/493978
 \setcounter{secnumdepth}{0}
@@ -38,16 +43,14 @@
 
 % new commands 
 \newcommand{\question}[1]{
-    \ornamento \vspace{-2.5em} 
-    \noindent 
+    \ornamento \vspace{-2.5em} \\
     \begin{tcolorbox}[
         colframe=ornamentoscolor,
         colback=backdropcolor,
-        left skip=-0.45em,
         % sharp corners,
         ]
         \section{\textcolor{sectioncolor}{
-            \,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} 
+            \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
             \uline{Aufgabe #1}
         }}
     \end{tcolorbox}
@@ -60,7 +63,7 @@
         sharp corners,
         ]
         \subsection{\textcolor{sectioncolor}{
-            \raisebox{1pt}[10pt][3pt]{\aldineleft}
+            \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
             \uline{Teil #1}
         }}
     \end{tcolorbox}
@@ -68,7 +71,10 @@
 }
 
 \newcommand{\subsubquestion}[1]{
-    \subsubsection{\;\textcolor{sectioncolor}{\uline{#1}}}
+    \subsubsection{
+        \noIncludeOutline{\;}
+        \textcolor{sectioncolor}{\uline{#1}}
+    }
 }
 
 
