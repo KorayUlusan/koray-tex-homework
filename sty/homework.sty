@@ -17,10 +17,16 @@
 \usepackage{color,soul} % https://tex.stackexchange.com/a/141572 for \hl
 \usepackage[most]{tcolorbox}
 
-\definecolor{ornamentoscolor}{HTML}{538C4A}
-\definecolor{sectioncolor}{HTML}{0E5202}
-\definecolor{backdropcolor}{HTML}{E2F2DF}
-\definecolor{highlighcolor}{HTML}{E2F2DF}
+
+\definecolor{themeColor}{HTML}{E2F2DF}
+\definecolor{titleColor}{HTML}{0E5202}
+\definecolor{contourColor}{HTML}{C3DBBF}
+\definecolor{decorativeColor}{HTML}{538C4A}
+
+\definecolor{backdropcolor}{HTML}{FFEDF5} %Alternative: D4EDFA
+\definecolor{highlighcolor}{HTML}{FFD400}
+
+\colorlet{ornamentoscolor}{decorativeColor} % overwrite ornamentoscolor.sty
 
 
 % https://tex.stackexchange.com/a/330980
@@ -32,7 +38,9 @@
     \def\aldineleft{}
     \def\noIncludeOutline#1{}
 }
-\newcommand{\noIncludeOutline}[1]{#1} % This is a workaround for:
+
+\newcommand{\noIncludeOutline}[1]{#1} 
+% This is a workaround for:
 %       Token not allowed in a PDF string (Unicode): 
 %       (hyperref) removing `\@ifnextchar'.
 
@@ -44,13 +52,13 @@
 \newcommand{\question}[1]{
     \ornamento \\
     \begin{tcolorbox}[
-        colframe=ornamentoscolor,
-        colback=backdropcolor,
+        colframe=decorativeColor,
+        colback=themeColor,
         % sharp corners,
         before skip=-3em,
         after skip=1em,
         ]
-        \section{\textcolor{sectioncolor}{
+        \section{\textcolor{titleColor}{
             \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
             \uline{Aufgabe #1}
         }}
@@ -60,12 +68,13 @@
 \newcommand{\subquestion}[1]{
     \hphantom{.}\\ % if there is a new line before somehow something breaks
     \begin{tcolorbox}[
-        colback=backdropcolor,
+        colframe=contourColor,
+        colback=themeColor,
         sharp corners,
         % before skip=10em,
         after skip=1em,
         ]
-        \subsection{\textcolor{sectioncolor}{
+        \subsection{\textcolor{titleColor}{
             \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
             \uline{Teil #1}
         }}
@@ -75,7 +84,7 @@
 \newcommand{\subsubquestion}[1]{
     \subsubsection{
         \noIncludeOutline{\;}
-        \textcolor{sectioncolor}{\uline{#1}}
+        \textcolor{contourColor}{\uline{#1}}
     }
 }
 
@@ -90,7 +99,8 @@
 \usepackage[most]{tcolorbox}
 \tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
         colframe=backdropcolor,colback=backdropcolor,  
-        highlight math style={enhanced} }
-        \newcommand{\bdtexttt}[1]{\tcbox{\texttt{#1}}}
+        highlight math style={enhanced} 
+}
+\newcommand{\bdtexttt}[1]{\tcbox{\texttt{#1}}}
 
 
