@@ -41,6 +41,17 @@
 \setcounter{secnumdepth}{0}
     
 
+\newcommand{\safeEnd}{
+    % https://tex.stackexchange.com/q/33455
+    % FIXME this is still a bit buggy.
+    \@ifnextchar\\
+    {
+        \vspace{-1em}    
+    }{    
+        \\
+    }
+}
+
 % new commands 
 \newcommand{\question}[1]{
     \ornamento \vspace{-2.5em} \\
@@ -54,10 +65,12 @@
             \uline{Aufgabe #1}
         }}
     \end{tcolorbox}
+    \vspace{-2em}
+    \safeEnd
 }
 
 \newcommand{\subquestion}[1]{
-    \vspace{1em} 
+    \vspace{0.7em} 
     \begin{tcolorbox}[
         colback=backdropcolor,
         sharp corners,
@@ -68,6 +81,7 @@
         }}
     \end{tcolorbox}
     \vspace{-1em} 
+    \safeEnd
 }
 
 \newcommand{\subsubquestion}[1]{
@@ -75,6 +89,7 @@
         \noIncludeOutline{\;}
         \textcolor{sectioncolor}{\uline{#1}}
     }
+    \safeEnd
 }
 
 
