@@ -39,49 +39,37 @@
 
 % https://tex.stackexchange.com/a/493978
 \setcounter{secnumdepth}{0}
-    
-
-\newcommand{\safeEnd}{
-    % https://tex.stackexchange.com/q/33455
-    % FIXME this is still a bit buggy.
-    \@ifnextchar\\
-    {
-        \vspace{-1em}    
-    }{    
-        \\
-    }
-}
 
 % new commands 
 \newcommand{\question}[1]{
-    \ornamento \vspace{-2.5em} \\
+    \ornamento \\
     \begin{tcolorbox}[
         colframe=ornamentoscolor,
         colback=backdropcolor,
         % sharp corners,
+        before skip=-3em,
+        after skip=1em,
         ]
         \section{\textcolor{sectioncolor}{
             \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
             \uline{Aufgabe #1}
         }}
     \end{tcolorbox}
-    \vspace{-2em}
-    \safeEnd
 }
 
 \newcommand{\subquestion}[1]{
-    \vspace{0.7em} 
+    \hphantom{.}\\ % if there is a new line before somehow something breaks
     \begin{tcolorbox}[
         colback=backdropcolor,
         sharp corners,
+        % before skip=10em,
+        after skip=1em,
         ]
         \subsection{\textcolor{sectioncolor}{
             \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
             \uline{Teil #1}
         }}
     \end{tcolorbox}
-    \vspace{-1em} 
-    \safeEnd
 }
 
 \newcommand{\subsubquestion}[1]{
@@ -89,7 +77,6 @@
         \noIncludeOutline{\;}
         \textcolor{sectioncolor}{\uline{#1}}
     }
-    \safeEnd
 }
 
 
