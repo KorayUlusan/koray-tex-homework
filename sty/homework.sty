@@ -45,11 +45,22 @@
 %       (hyperref) removing `\@ifnextchar'.
 
 
+% https://tex.stackexchange.com/a/152278
+\usepackage{etoolbox} % IDK why this is here???
+\newskip\mfilskip
+\mfilskip=0pt plus 3cm\relax
+\newcommand{\mfilbreak}{\vspace{\mfilskip}\penalty -200%
+    \ifdim\lastskip<\mfilskip\vspace{-\lastskip}\else\vspace{-\mfilskip}\fi}
+\pretocmd{\section}{\mfilbreak}{}{}
+
+
 % https://tex.stackexchange.com/a/493978
 \setcounter{secnumdepth}{0}
 
+
 % new commands 
 \newcommand{\question}[1]{
+    \mfilbreak
     \ornamento \\
     \begin{tcolorbox}[
         colframe=decorativeColor,
