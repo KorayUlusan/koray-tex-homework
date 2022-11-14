@@ -70,7 +70,7 @@
     \begin{tcolorbox}[
         colframe=decorativeColor,
         colback=themeColor,
-        % sharp corners,
+        sharp corners,
         before skip=-3em,
         after skip=1em,
         ]
@@ -86,8 +86,10 @@
     \begin{tcolorbox}[
         colframe=contourColor,
         colback=themeColor,
-        sharp corners,
+        % sharp corners,
         % before skip=10em,
+        top=0.1em,
+        bottom=0.1em,
         after skip=1em,
         ]
         \subsection{\textcolor{titleColor}{
@@ -97,12 +99,27 @@
     \end{tcolorbox}
 }
 
-\newcommand{\subsubquestion}[1]{
-    \subsubsection{
-        \textcolor{titleColor}{\uline{#1}}
-    }
-}
 
+\newcommand{\subsubquestion}[1]{{
+    \hphantom{.}\\
+    \begin{tcolorbox}[
+        colframe=white,
+        colback=themeColor,
+        % sharp corners,
+        % left=1em,
+        right=-2.14em,
+        % top=1em,
+        % bottom=1em,
+        before skip=1em,
+        after skip=1em,
+        width=8em,
+    ]
+        \subsubsection{\textcolor{titleColor}{
+            \noIncludeOutline{\raisebox{1.5pt}[10pt][3pt]{\decotwo}}
+            #1
+        }}
+    \end{tcolorbox}
+}}
 
 
 \sethlcolor{highlighcolor} % package `soul'
