@@ -28,7 +28,7 @@
 \definecolor{contourColor}{HTML}{C3DBBF}
 \definecolor{decorativeColor}{HTML}{538C4A}
 
-\definecolor{backdropcolor}{HTML}{FFEDF5} %Alternative: D4EDFA
+\definecolor{backdropcolor}{HTML}{D4EDFA}
 \definecolor{highlighcolor}{HTML}{FFD400}
 
 \colorlet{ornamentoscolor}{decorativeColor} % overwrite ornamentoscolor.sty
@@ -108,6 +108,10 @@
 \sethlcolor{highlighcolor} % package `soul'
 % highlight texttt
 \newcommand{\hltexttt}[1]{\texttt{\hl{#1\:}}}
+
+% This is used for corrections in tutorium
+\definecolor{darkRed}{HTML}{FF3838}
+\newcommand{\noteKoray}[1]{\textcolor{red}{#1}}
 
 
 % https://tex.stackexchange.com/a/568900
