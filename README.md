@@ -11,6 +11,9 @@ Feel free to open a pull request.
 ```latex
 % You need to include this package in your latex file.
 \usepackage{./koray-tex-homework/homework.sty}
+
+% I'd really appricate if you give credit 
+\KoraysHomeworkStyCredit % can be added before \end{document}
 ```
 
 ### `\question` commands
