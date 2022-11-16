@@ -129,20 +129,28 @@
 \newcommand{\hltexttt}[1]{\texttt{\hl{#1\:}}}
 
 % This is used to leave notes
-\newcommand{\notePerson}[3]{
+\newcommand{\commentPerson}[4]{
     \begin{tcolorbox}[
         colframe=lightgray,
         colback=white,
+        before skip balanced=0.4em,
+        after skip balanced=0.4em,
+        % left=1em,
+        % right=1em,
+        top=0.2em,
+        % bottom=1em,
         ]
-        \textcolor{#1}{
-            {\fontfamily{lmtt}\selectfont \large
-                \underline{\textbf{Note(\textit{#2}):}}
-                #3
+        {\fontfamily{lmtt}\selectfont \large
+            \textcolor{#1}{
+                \underline{\textbf{#2(\textit{#3}):}}
             }
+            #4
         }
     \end{tcolorbox}
 }
-\newcommand{\noteKoray}[1]{\notePerson{red}{Koray}{#1}}
+\newcommand{\fixmeKoray}[1]{\commentPerson{red}{FixMe}{Koray}{#1}}
+\newcommand{\questionKoray}[1]{\commentPerson{blue}{Question}{Koray}{#1}}
+\newcommand{\noteKoray}[1]{\commentPerson{orange}{Note}{Koray}{#1}}
 
 
 % https://tex.stackexchange.com/a/568900
