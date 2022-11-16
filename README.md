@@ -38,7 +38,7 @@ Its important to leave notes to your teampartners.
 
 ```latex
 % first create a command per person
-\newcommand{\noteKoray}[1]{\notePerson{red}{Koray}{#1}}
+\newcommand{\noteKoray}[1]{\notePerson{red}{Note}{Koray}{#1}}
 
 % then you can use it
 \noteKoray{text here}
@@ -53,7 +53,3 @@ TODO
 \ornamentoL
 \ornamentoR
 ```
-
-## TODOs
-
-FIXME: `\bdtexttt` is bigger than expected. Maybe the given `vorlage.tex` has some settings in it. 
