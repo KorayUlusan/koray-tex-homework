@@ -1,6 +1,6 @@
 # Koray's latex homework style package
 
-This is the style I use in my homeworks. You can get a feel of this style [here](showcase.pdf).
+This is the style I use in my homeworks. You can find visuals [here](./showcase.pdf).
 
 I'm still learning and honestly have no idea what I'm doing. This repo probably doesn't follow any latex package convensions.
 
@@ -16,9 +16,9 @@ Feel free to open a pull request.
 \KoraysHomeworkStyCredit % can be added before \end{document}
 ```
 
-### `\question` commands
+### Answering questions
 
-Since homeworks have a defined structure, it made more sense to write the question numbers by hand. It makes the latex document more readable. (and avoids `\section*{1}`)
+Since homeworks have a defined structure, it made more sense to write the question numbers by hand. It makes the latex document more readable. (and avoid `\section*{1}`)
 
 ```latex
 \question{1}
@@ -26,30 +26,52 @@ Since homeworks have a defined structure, it made more sense to write the questi
 \subsubquestion{(i)}
 ```
 
-You can overwrite colors
-
-### text styles
+### Text styles
 
 ```latex
 \bdtexttt{text here}
 \hltexttt{text here}
 ```
 
-### comments
+### Leaving notes
 
-Its important to leave notes to your teampartners.
+Its important to leave notes to your teampartners. Better communication better
+results. 
 
 ```latex
 % first create a command per person
-\newcommand{\noteKoray}[1]{\notePerson{red}{Note}{Koray}{#1}}
+\newcommand{\noteKoray}[1]{\commentPerson{orange}{Note}{Koray}{#1}}
 
 % then you can use it
 \noteKoray{text here}
 ```
 
-### decorations
+Examples:
 
-TODO
+```latex
+\newcommand{\fixmeKoray}[1]{\commentPerson{red}{FixMe}{Koray}{#1}}
+\newcommand{\questionKoray}[1]{\commentPerson{blue}{Question}{Koray}{#1}}
+\newcommand{\noteKoray}[1]{\commentPerson{orange}{Note}{Koray}{#1}}
+```
+
+### Changing Color Theme
+
+You can overwrite these theme colors
+
+- `themeColor`
+- `titleColor`
+- `contourColor`
+- `decorativeColor`
+- `backdropcolor`
+- `highlighcolor`
+
+```latex
+% for example
+\definecolor{mycolor}{HTML}{FFD400} % hex must be capitals
+\colorlet{themeColor}{mycolor} % overwrite
+```
+
+### Decorations
 
 ```latex
 \ornamento
