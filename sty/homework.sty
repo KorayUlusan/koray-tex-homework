@@ -127,8 +127,13 @@
 \newcommand{\hltexttt}[1]{\texttt{\hl{#1\:}}}
 
 % This is used for corrections in tutorium
-\definecolor{darkRed}{HTML}{FF3838}
-\newcommand{\noteKoray}[1]{\textcolor{red}{Note\(Koray\): #1}}
+\newcommand{\notePerson}[3]{\textcolor{#1}{
+    {\fontfamily{lmtt}\selectfont \large
+        \underline{\textbf{Note(\textit{#2}):}}
+        #3
+    }
+}}
+\newcommand{\noteKoray}[1]{\notePerson{red}{Koray}{#1}}
 
 
 % https://tex.stackexchange.com/a/568900
