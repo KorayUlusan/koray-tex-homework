@@ -6,6 +6,8 @@
 % 
 % Provides these commands:
 %   \ornamento \ornamentoL \ornamentoR
+%  
+% You can overwrite `ornamentoscolor' to change all ornamento colors
 %
 % 
 
@@ -33,7 +35,7 @@
     }
 }
 
-\newcommand{\ornamentoLD}{ % ornamento left dipped
+\newcommand{\ornamentoRD}{ % ornamento right dipped
     \noindent  
     \textcolor{ornamentoscolor}{
         \raisebox{-1.9pt}[10pt][10pt]{\leafright} 
@@ -43,11 +45,11 @@
     }
 }
 
-\newcommand{\ornamentoL}{ % ornamento left
+\newcommand{\ornamentoR}{ % ornamento right
     \raisebox{1.9pt}[10pt][10pt]{\ornamentoLD}
 }
 
-\newcommand{\ornamentoRD}{ % ornamento right dipped
+\newcommand{\ornamentoLD}{ % ornamento left dipped
     \noindent \textcolor{ornamentoscolor}{
         \raisebox{-1.9pt}[10pt][10pt]{
             \decoone \ornamentoright
@@ -57,7 +59,7 @@
     }
 }
 
-\newcommand{\ornamentoR}{ % ornamento left
+\newcommand{\ornamentoL}{ % ornamento left
     \raisebox{1.9pt}[10pt][10pt]{\ornamentoRD} 
 }   
 
