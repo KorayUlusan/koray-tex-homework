@@ -6,6 +6,20 @@ I'm still learning and honestly have no idea what I'm doing. This repo probably 
 
 Feel free to open a pull request. 
 
+## Installation
+
+```sh
+cd yourProject/
+git submodule add https://github.com/KorayUlusan/korays-homework-sty
+```
+
+to uninstall:
+
+```sh
+cd yourProject/
+git rm koray-tex-homework/
+```
+
 ## Usage
 
 ```latex
