@@ -1,4 +1,4 @@
-# Koray's latex homework style package
+# Koray's latex homework style
 
 This is the style I use in my homeworks. You can find visuals [here](./showcase.pdf).
 
