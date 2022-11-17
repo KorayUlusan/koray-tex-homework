@@ -1,5 +1,7 @@
 # Koray's latex homework style
 
+<img src="./img/showcase-firstpage.png" width="350"  alt="first page of showcase.pdf" style="float: right;margin-left: 20px; margin-bottom: 20px;" align="right">
+
 This is the style I use in my homeworks. You can find visuals [here](./showcase.pdf).
 
 I'm still learning and honestly have no idea what I'm doing. This repo probably doesn't follow any latex package convensions.
