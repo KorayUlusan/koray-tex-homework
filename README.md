@@ -26,7 +26,8 @@ git rm koray-tex-homework/
 
 ```latex
 % You need to include this package in your latex file.
-\usepackage{./korays-homework-sty/korayHomework.sty}
+% MAKE SURE YOU'VE SPECIFIED THE PATH CORRECT
+\usepackage{../korays-homework-sty/korayHomework}
 
 % I'd really appricate if you give credit 
 \KoraysHomeworkStyCredit % can be added before \end{document}
