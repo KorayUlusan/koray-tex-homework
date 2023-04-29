@@ -70,6 +70,12 @@
 \setcounter{secnumdepth}{0}
 
 
+
+\newcommand{\questionPreText}{Aufgabe }
+\newcommand{\subquestionPreText}{Teil }
+\newcommand{\subsubquestionPreText}{}
+
+
 % new commands 
 \newcommand{\question}[1]{
     \mfilbreak
@@ -83,7 +89,7 @@
         ]
         \section{\textcolor{titleColor}{
             \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
-            \uline{Aufgabe #1}
+            \uline{\questionPreText #1}
         }}
     \end{tcolorbox}
 }
@@ -101,7 +107,7 @@
         ]
         \subsection{\textcolor{titleColor}{
             \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
-            \uline{Teil #1}
+            \uline{\subquestionPreText #1}
         }}
     \end{tcolorbox}
 }
@@ -123,7 +129,7 @@
     ]
         \subsubsection{\textcolor{titleColor}{
             \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
-            #1
+            \subsubquestionPreText #1
         }}
     \end{tcolorbox}
     % \vspace{-2.58em} 

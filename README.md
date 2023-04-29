@@ -42,6 +42,14 @@ Since homeworks have a defined structure, it made more sense to write the questi
 \subsubquestion{(i)}
 ```
 
+to overwrite the default prefix of the questions add these
+
+```latex
+\renewcommand{\questionPreText}{Question }
+\renewcommand{\subquestionPreText}{Part }
+\renewcommand{\subsubquestionPreText}{}
+```
+
 ### Text styles
 
 ```latex
