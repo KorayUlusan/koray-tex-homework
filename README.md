@@ -47,7 +47,9 @@ to overwrite the default prefix of the questions add these
 
 ```latex
 \renewcommand{\questionPreText}{Question }
+\renewcommand{\questionPostText}{)}
 \renewcommand{\subquestionPreText}{Part }
+\renewcommand{\subquestionPostText}{)}
 \renewcommand{\subsubquestionPreText}{}
 ```
 

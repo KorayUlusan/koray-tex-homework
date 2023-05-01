@@ -65,45 +65,42 @@
 %       (hyperref) removing `\@ifnextchar'.
 
 
-% https://tex.stackexchange.com/a/152278
-\usepackage{etoolbox} % IDK why this is here???
-\newskip\mfilskip
-\mfilskip=0pt plus 3cm\relax
-\newcommand{\mfilbreak}{\vspace{\mfilskip}\penalty -200%
-    \ifdim\lastskip<\mfilskip\vspace{-\lastskip}\else\vspace{-\mfilskip}\fi}
-\pretocmd{\section}{\mfilbreak}{}{}
-
 
 % https://tex.stackexchange.com/a/493978
 \setcounter{secnumdepth}{0}
 
 
+\usepackage{needspace}
+
 
 \newcommand{\questionPreText}{Aufgabe }
+\newcommand{\questionPostText}{}
 \newcommand{\subquestionPreText}{Teil }
+\newcommand{\subquestionPostText}{}
 \newcommand{\subsubquestionPreText}{}
 
 
 % new commands 
 \newcommand{\question}[1]{
-    \mfilbreak
+    \needspace{10em}
     \ornamento \\
     \begin{tcolorbox}[
         colframe=decorativeColor,
         colback=themeColor,
         sharp corners,
-        before skip=-3em,
+        % before skip=-3em,
         after skip=1em,
         ]
         \section{\textcolor{titleColor}{
             \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
-            \uline{\questionPreText #1}
+            \uline{\questionPreText #1 \questionPostText}
         }}
     \end{tcolorbox}
+    
 }
 
 \newcommand{\subquestion}[1]{
-    \hphantom{.}\\ % if there is a new line before somehow something breaks
+    \needspace{8em}
     \begin{tcolorbox}[
         colframe=contourColor,
         colback=themeColor,
@@ -115,7 +112,7 @@
         ]
         \subsection{\textcolor{titleColor}{
             \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
-            \uline{\subquestionPreText #1}
+            \uline{\subquestionPreText #1 \subquestionPostText}
         }}
     \end{tcolorbox}
 }

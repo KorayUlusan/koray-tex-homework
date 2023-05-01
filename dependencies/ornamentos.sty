@@ -21,7 +21,6 @@
 \newcommand{\ornamentoleft}{\leafright \decofourleft \decothreeleft \aldineright \decotwo \floweroneleft}
 \newcommand{\ornamentoright}{\floweroneright \decotwo \aldineleft \decothreeright \decofourright \leafleft}
 \newcommand{\ornamento} { % ornamento
-    \vspace{1em}
     \noindent 
     \textcolor{ornamentoscolor}{
         \hrulefill 
@@ -31,7 +30,6 @@
             \ornamentoright
     } 
     \hrulefill \\ 
-    \vspace{2em}
     }
 }
 
@@ -63,13 +61,13 @@
     \raisebox{1.9pt}[10pt][10pt]{\ornamentoRD} 
 }   
 
-% \def\headrule{{ % change headrule
-%         \color{ornamentoscolor}
-%         \raisebox{-2.1pt}[10pt][10pt]{\leafright} 
-%         \hrulefill 
-%         \
-%         \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~} 
-%         \hrulefill
-%         \
-%         \raisebox{-2.1pt}[10pt][10pt]{\leafleft}
-%     }}
+\def\headrule{{ % change headrule
+        \color{ornamentoscolor}
+        \raisebox{-2.1pt}[10pt][10pt]{\leafright} 
+        \hrulefill 
+        \
+        \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~} 
+        \hrulefill
+        \
+        \raisebox{-2.1pt}[10pt][10pt]{\leafleft}
+    }}
