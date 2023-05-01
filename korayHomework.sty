@@ -192,3 +192,31 @@
         \texttt{https://github.com/KorayUlusan/korays-homework-sty}
     } 
 }}
+
+
+% take study notes on latex
+\RequirePackage{environ}
+\RequirePackage{mdframed}
+
+\newif\ifstudynotes
+\studynotesfalse
+\DeclareOption{studynotes}{
+  \studynotestrue
+}
+
+\NewEnviron{studynotes}[1][1in]{
+
+  \ifstudynotes
+    \vspace{1ex}
+    \begin{mdframed}
+    \setlength{\parskip}{\medskipamount}
+    \sffamily
+    \BODY
+    \end{mdframed}
+    \vspace{1ex}
+  \else
+  \fi
+}
+
+\ProcessOptions\relax
+
