@@ -83,6 +83,7 @@
 % new commands 
 \newcommand{\question}[1]{
     \needspace{10em}
+    \noindent
     \ornamento \\
     \begin{tcolorbox}[
         colframe=decorativeColor,
@@ -101,6 +102,7 @@
 
 \newcommand{\subquestion}[1]{
     \needspace{8em}
+    \noindent
     \begin{tcolorbox}[
         colframe=contourColor,
         colback=themeColor,
@@ -119,7 +121,8 @@
 
 
 \newcommand{\subsubquestion}[1]{{
-    \hphantom{.}\\
+    \needspace{3em}
+    \noindent
     \begin{tcolorbox}[
         colframe=white,
         colback=themeColor,
