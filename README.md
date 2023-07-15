@@ -43,6 +43,16 @@ Since homeworks have a defined structure, it made more sense to write the questi
 \subsubquestion{(i)}
 ```
 
+you can generate question numberings automatically via
+
+```sh
+./qgen.py -1a 3333
+
+# to see help message, use
+./qgen.py -h
+```
+
+
 to overwrite the default prefix of the questions add these
 
 ```latex
