@@ -37,21 +37,21 @@ def write_roman(num):
 #
 
 
-help_str = r""">>> qgen.py 21
+help_str = r"""# Here is a sample usage
+>>> ./qgen.py 21
 \question{1}
 \subquestion{1}
 \subquestion{2}
 \question{2}
 \subquestion{1}
-
->>> qgen.py 3.3.3
-
->>> qgen.py 12.12.3
-
->>> qgen.py -1a 522
-
->>> qgen.py -aa 522
-"""
+>>> ./qgen.py 3.3.3
+...
+>>> ./qgen.py 12.12.3
+...
+>>> ./qgen.py -1a 522
+...
+>>> ./qgen.py -aa 522
+..."""
 
 if "--help" in sys.argv or "-h" in sys.argv:
     print(help_str)
