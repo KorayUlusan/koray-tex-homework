@@ -109,6 +109,13 @@ You can overwrite these theme colors
 ```
 
 ### Decorations
+#### headrule
+
+```latex
+\def\headrule{\koraysfancyheadrule}
+```
+
+#### dividers
 
 ```latex
 \ornamento
