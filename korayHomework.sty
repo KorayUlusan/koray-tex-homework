@@ -1,218 +1,81 @@
-\usepackage{silence} 
+\usepackage{silence}
 \WarningFilter{latex}{You have requested package}
 % Supresses \ProvidesPackage warning when \usepackage{path/to/this/file} is used
 
 \ProvidesPackage{korayHomework}
-
 % 
 % Written by Koray Ulusan
 % https://github.com/KorayUlusan
 % 
-% 
-% Provides:
-%  \question \subquestion \subsubquestion \hltexttt \bdtexttt
-%  \noteKoray
-% WARNING: This file is opinionated and has side effects
-% 
 
-
+%%usepackages
 \usepackage{color}
-\definecolor{ornamentoscolor}{RGB}{0,80,0}
-
 \usepackage{fourier-orns}
-
-% Modified from: https://tex.stackexchange.com/a/74609
-
-\newcommand{\ornamentoleft}{\leafright \decofourleft \decothreeleft \aldineright \decotwo \floweroneleft}
-\newcommand{\ornamentoright}{\floweroneright \decotwo \aldineleft \decothreeright \decofourright \leafleft}
-\newcommand{\ornamento} { % ornamento
-    \noindent
-    \textcolor{ornamentoscolor}{
-        \hrulefill
-        \raisebox{-2.5pt}[10pt][10pt]{
-            \ornamentoleft
-            \decoone
-            \ornamentoright
-        }
-        \hrulefill \\
-    }
-}
-
-\newcommand{\ornamentoR}{ % ornamento right
-    \noindent
-    \raisebox{1.9pt}[10pt][10pt]{
-        \noindent
-        \textcolor{ornamentoscolor}{
-            \raisebox{-1.9pt}[10pt][10pt]{\leafright}
-            \rule{7.6em}{.4pt} % FIXME \hrulefill doest work with raisebox, this 
-            % rule width is short
-            \raisebox{-1.9pt}[10pt][10pt]{\ornamentoleft \decoone}
-        }
-    }
-}
-
-\newcommand{\ornamentoL}{ % ornamento left
-    \noindent
-    \raisebox{1.9pt}[10pt][10pt]{
-        \noindent
-        \textcolor{ornamentoscolor}{
-            \raisebox{-1.9pt}[10pt][10pt]{
-                \decoone \ornamentoright
-            }
-            \rule{7.6em}{.4pt}
-            \raisebox{-1.9pt}[10pt][10pt]{\leafleft}
-        }
-    }
-}
-
-\def\koraysfancyheadrule{{ % optional change headrule
-            \color{ornamentoscolor}
-            \raisebox{-2.1pt}[10pt][10pt]{\leafright}
-            \hrulefill
-            \
-            \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~}
-            \hrulefill
-            \
-            \raisebox{-2.1pt}[10pt][10pt]{\leafleft}
-        }}
-
-
-% https://tex.stackexchange.com/a/375896
-\parskip=6pt plus 1pt
-
 \usepackage[hidelinks]{hyperref}
-
 \usepackage[none]{hyphenat}
 \usepackage{microtype}
+\usepackage{needspace}
+\usepackage{soul}
+\usepackage[most]{tcolorbox}
 \usepackage{ulem}
 
-\usepackage{color,soul} % https://tex.stackexchange.com/a/141572 for \hl
-\usepackage[most]{tcolorbox}
+%% style
+\parskip=6pt plus 1pt % https://tex.stackexchange.com/a/375896
+\setcounter{secnumdepth}{0} % https://tex.stackexchange.com/a/493978
+\setlength\parindent{0pt}
+\ProcessOptions\relax
+\allowdisplaybreaks % https://tex.stackexchange.com/a/51883/284448
 
-
+%% colors
 \definecolor{themeColor}{HTML}{E2F2DF}
 \definecolor{titleColor}{HTML}{0E5202}
 \definecolor{contourColor}{HTML}{C3DBBF}
 \definecolor{decorativeColor}{HTML}{538C4A}
-
+% 
+\definecolor{ornamentoscolor}{RGB}{0,80,0}
+\colorlet{ornamentoscolor}{decorativeColor}
+% 
 \definecolor{backdropcolor}{HTML}{D4EDFA}
 \definecolor{highlighcolor}{HTML}{FFD400}
+% 
 
-\colorlet{ornamentoscolor}{decorativeColor} % overwrite ornamentoscolor.sty
+
+%% prettier style
+
+% \hr modified from https://tex.stackexchange.com/a/309862/284448
+\newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\hrulefill}\par}
+\newcommand\hrdotted{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\dotfill}\par}
 
 
-% https://tex.stackexchange.com/a/330980
-\pdfstringdefDisableCommands{
-    \def\\{}
-    \def\texttt#1{#1}
-    \def\uline#1{#1}  
-    \def\decoone{}
-    \def\aldineleft{}
-    \def\noIncludeOutline#1{}
+\sethlcolor{highlighcolor} % https://tex.stackexchange.com/a/141572
+\newcommand{\hltexttt}[1]{
+    % highlight texttt
+    \texttt{\hl{\:#1\:}}
+    }
+
+
+% this tcbset effects ``\question''s, too.
+\tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
+colframe=backdropcolor,colback=backdropcolor,
+highlight math style={enhanced}
+}
+\newcommand{\bdtexttt}[1]{
+    % backdrop texttt
+    % https://tex.stackexchange.com/a/568900
+    \tcbox{\texttt{#1}}
 }
 
-\newcommand{\noIncludeOutline}[1]{#1} 
-% This is a workaround for:
-%       Token not allowed in a PDF string (Unicode): 
-%       (hyperref) removing `\@ifnextchar'.
-
-
-
-% https://tex.stackexchange.com/a/493978
-\setcounter{secnumdepth}{0}
-
-
-\usepackage{needspace}
-
-
-\newcommand{\questionPreText}{Aufgabe }
-\newcommand{\questionPostText}{}
-\newcommand{\subquestionPreText}{Teil }
-\newcommand{\subquestionPostText}{}
-\newcommand{\subsubquestionPreText}{}
-
-
-% new commands 
-\newcommand{\question}[1]{
-    \needspace{10em}
-    \noindent
-    \ornamento \\
-    \begin{tcolorbox}[
-        colframe=decorativeColor,
-        colback=themeColor,
-        sharp corners,
-        % before skip=-3em,
-        after skip=1em,
-        ]
-        \section{\textcolor{titleColor}{
-            \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
-            \uline{\questionPreText #1\questionPostText}
-        }}
-    \end{tcolorbox}
-    
-}
-
-\newcommand{\subquestion}[1]{
-    \needspace{8em}
-    \noindent
-    \begin{tcolorbox}[
-        colframe=contourColor,
-        colback=themeColor,
-        % sharp corners,
-        % before skip=10em,
-        top=0.1em,
-        bottom=0.1em,
-        after skip=1em,
-        ]
-        \subsection{\textcolor{titleColor}{
-            \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
-            \uline{\subquestionPreText #1\subquestionPostText}
-        }}
-    \end{tcolorbox}
-}
-
-
-\newcommand{\subsubquestion}[1]{{
-    \needspace{3em}
-    \noindent
-    \begin{tcolorbox}[
-        colframe=white,
-        colback=themeColor,
-        % sharp corners,
-        % left=1em,
-        right=-2.14em,
-        top=0.1em,
-        % bottom=1em,
-        before skip=1em,
-        after skip=1em,
-        width=0.3\paperwidth,
-    ]
-        \subsubsection{\textcolor{titleColor}{
-            \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
-            \subsubquestionPreText #1
-        }}
-    \end{tcolorbox}
-    % \vspace{-2.58em} 
-    % \hphantom{.}
-    % \hfill\ornamentoL\kern-1em\\
-}}
-
-
-\sethlcolor{highlighcolor} % package `soul'
-% highlight texttt
-\newcommand{\hltexttt}[1]{\texttt{\hl{#1\:}}}
-
-% This is used to leave notes
 \newcommand{\commentPerson}[4]{
+    % This is used to leave notes
     \begin{tcolorbox}[
-        colframe=#1,
-        colback=white!97!#1,
-        before skip balanced=0.4em,
-        after skip balanced=0.4em,
-        % left=1em,
-        % right=1em,
-        top=0.2em,
-        % bottom=1em,
+            colframe=#1,
+            colback=white!97!#1,
+            before skip balanced=0.4em,
+            after skip balanced=0.4em,
+            % left=1em,
+            % right=1em,
+            top=0.2em,
+            % bottom=1em,
         ]
         {\fontfamily{lmtt}\selectfont \large
             \textcolor{#1}{
@@ -228,59 +91,172 @@
 \newcommand{\questionKoray}[1]{\commentPerson{blue}{Question}{Koray}{#1}}
 \newcommand{\noteKoray}[1]{\commentPerson{orange}{Note}{Koray}{#1}}
 
-
-% https://tex.stackexchange.com/a/568900
-\usepackage[most]{tcolorbox}
-\tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
-        colframe=backdropcolor,colback=backdropcolor,  
-        highlight math style={enhanced} 
-}
-\newcommand{\bdtexttt}[1]{\tcbox{\texttt{#1}}}
-
-
 \newcommand{\KoraysHomeworkStyCredit}{\textcolor{black!70!white}{
-    This documents style is \negmedspace
-    \href{https://github.com/KorayUlusan/korays-homework-sty}{
-        \texttt{https://github.com/KorayUlusan/korays-homework-sty}
-    } 
-}}
+        This documents style is \negmedspace
+        \href{https://github.com/KorayUlusan/korays-homework-sty}{
+            \texttt{https://github.com/KorayUlusan/korays-homework-sty}
+        }
+    }}
 
 
+%% orlementos 
+% modified from: https://tex.stackexchange.com/a/74609/284448
+\def\koraysfancyheadrule{{ % optional change headrule
+            \color{ornamentoscolor}
+            \raisebox{-2.1pt}[10pt][10pt]{\leafright}
+            \hrulefill
+            \
+            \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~}
+            \hrulefill
+            \
+            \raisebox{-2.1pt}[10pt][10pt]{\leafleft}
+        }}
+\newcommand{\ornamentoleft}{\leafright \decofourleft \decothreeleft \aldineright \decotwo \floweroneleft}
+\newcommand{\ornamentoright}{\floweroneright \decotwo \aldineleft \decothreeright \decofourright \leafleft}
+\newcommand{\ornamento} { % ornamento
+    \noindent
+    \textcolor{ornamentoscolor}{
+        \hrulefill
+        \raisebox{-2.5pt}[10pt][10pt]{
+            \ornamentoleft
+            \decoone
+            \ornamentoright
+        }
+        \hrulefill \\
+    }
+}
+\newcommand{\ornamentoR}{ % ornamento right
+    \noindent
+    \raisebox{1.9pt}[10pt][10pt]{
+        \noindent
+        \textcolor{ornamentoscolor}{
+            \raisebox{-1.9pt}[10pt][10pt]{\leafright}
+            \rule{7.6em}{.4pt} % FIXME \hrulefill doest work with raisebox, this 
+            % rule width is short
+            \raisebox{-1.9pt}[10pt][10pt]{\ornamentoleft \decoone}
+        }
+    }
+}
+\newcommand{\ornamentoL}{ % ornamento left
+    \noindent
+    \raisebox{1.9pt}[10pt][10pt]{
+        \noindent
+        \textcolor{ornamentoscolor}{
+            \raisebox{-1.9pt}[10pt][10pt]{
+                \decoone \ornamentoright
+            }
+            \rule{7.6em}{.4pt}
+            \raisebox{-1.9pt}[10pt][10pt]{\leafleft}
+        }
+    }
+}
+\pdfstringdefDisableCommands{
+% https://tex.stackexchange.com/a/330980
+\def\\{}
+\def\texttt#1{#1}
+\def\uline#1{#1}
+\def\decoone{}
+\def\aldineleft{}
+\def\noIncludeOutline#1{}
+}
+\newcommand{\noIncludeOutline}[1]{
+    % This is a workaround for:
+    %       Token not allowed in a PDF string (Unicode): 
+    %       (hyperref) removing `\@ifnextchar'.
+    #1
+}
+
+%% question commands
+
+% prefixes are overwriteable
+\newcommand{\questionPreText}{Aufgabe }
+\newcommand{\questionPostText}{}
+\newcommand{\subquestionPreText}{Teil }
+\newcommand{\subquestionPostText}{}
+\newcommand{\subsubquestionPreText}{}
+
+\newcommand{\question}[1]{
+    \needspace{10em}
+    \noindent
+    \ornamento \\
+    \begin{tcolorbox}[
+            colframe=decorativeColor,
+            colback=themeColor,
+            sharp corners,
+            % before skip=-3em,
+            after skip=1em,
+        ]
+        \section{\textcolor{titleColor}{
+              \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
+              \uline{\questionPreText #1\questionPostText}
+          }}
+    \end{tcolorbox}
+}
+\newcommand{\subquestion}[1]{
+    \needspace{8em}
+    \noindent
+    \begin{tcolorbox}[
+            colframe=contourColor,
+            colback=themeColor,
+            % sharp corners,
+            % before skip=10em,
+            top=0.1em,
+            bottom=0.1em,
+            after skip=1em,
+        ]
+        \subsection{\textcolor{titleColor}{
+                \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
+                \uline{\subquestionPreText #1\subquestionPostText}
+            }}
+    \end{tcolorbox}
+}
+\newcommand{\subsubquestion}[1]{{
+            \needspace{3em}
+            \noindent
+            \begin{tcolorbox}[
+                    colframe=white,
+                    colback=themeColor,
+                    % sharp corners,
+                    % left=1em,
+                    right=-2.14em,
+                    top=0.1em,
+                    % bottom=1em,
+                    before skip=1em,
+                    after skip=1em,
+                    width=0.3\paperwidth,
+                ]
+                \subsubsection{\textcolor{titleColor}{
+                        \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
+                        \subsubquestionPreText #1
+                    }}
+            \end{tcolorbox}
+            % \vspace{-2.58em} 
+            % \hphantom{.}
+            % \hfill\ornamentoL\kern-1em\\
+        }}
+
+
+%% environs
 % take study notes on latex
-\RequirePackage{environ}
-\RequirePackage{mdframed}
+% \RequirePackage{environ}
+% \RequirePackage{mdframed}
 
-\newif\ifstudynotes
-\studynotesfalse
-\DeclareOption{studynotes}{
-  \studynotestrue
-}
+% \newif\ifstudynotes
+% \studynotesfalse
+% \DeclareOption{studynotes}{
+%     \studynotestrue
+% }
 
-\NewEnviron{studynotes}[1][1in]{
+% \NewEnviron{studynotes}[1][1in]{
 
-  \ifstudynotes
-    \vspace{1ex}
-    \begin{mdframed}
-    \setlength{\parskip}{\medskipamount}
-    \sffamily
-    \BODY
-    \end{mdframed}
-    \vspace{1ex}
-  \else
-  \fi
-}
-
-\ProcessOptions\relax
-
-
-\allowdisplaybreaks % https://tex.stackexchange.com/a/51883/284448
-
-
-% custom commands for faster typing
-
-% modified from https://tex.stackexchange.com/a/309862/284448
-\newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\hrulefill}\par}
-\newcommand\hrdotted{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\dotfill}\par}
-
-\setlength\parindent{0pt}
-
+%     \ifstudynotes
+%         \vspace{1ex}
+%         \begin{mdframed}
+%             \setlength{\parskip}{\medskipamount}
+%             \sffamily
+%             \BODY
+%         \end{mdframed}
+%         \vspace{1ex}
+%     \else
+%     \fi
+% }
