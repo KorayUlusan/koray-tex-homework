@@ -51,13 +51,13 @@
 \newcommand{\hltexttt}[1]{
     % highlight texttt
     \texttt{\hl{\:#1\:}}
-    }
+}
 
 
 % this tcbset effects ``\question''s, too.
 \tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
-colframe=backdropcolor,colback=backdropcolor,
-highlight math style={enhanced}
+    colframe=backdropcolor,colback=backdropcolor,
+    highlight math style={enhanced}
 }
 \newcommand{\bdtexttt}[1]{
     % backdrop texttt
@@ -193,7 +193,6 @@ highlight math style={enhanced}
 }
 \newcommand{\subquestion}[1]{
     \needspace{8em}
-    \noindent
     \begin{tcolorbox}[
             colframe=contourColor,
             colback=themeColor,
@@ -209,30 +208,26 @@ highlight math style={enhanced}
             }}
     \end{tcolorbox}
 }
-\newcommand{\subsubquestion}[1]{{
-            \needspace{3em}
-            \noindent
-            \begin{tcolorbox}[
-                    colframe=white,
-                    colback=themeColor,
-                    % sharp corners,
-                    % left=1em,
-                    right=-2.14em,
-                    top=0.1em,
-                    % bottom=1em,
-                    before skip=1em,
-                    after skip=1em,
-                    width=0.3\paperwidth,
-                ]
-                \subsubsection{\textcolor{titleColor}{
-                        \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
-                        \subsubquestionPreText #1
-                    }}
-            \end{tcolorbox}
-            % \vspace{-2.58em} 
-            % \hphantom{.}
-            % \hfill\ornamentoL\kern-1em\\
-        }}
+\newcommand{\subsubquestion}[1]{
+    \needspace{3em}
+    \begin{tcolorbox}[
+            colframe=white,
+            colback=themeColor,
+            % sharp corners,
+            % left=1em,
+            right=-2.14em,
+            top=0.1em,
+            % bottom=1em,
+            before skip=1em,
+            after skip=1em,
+            width=0.3\paperwidth,
+        ]
+        \subsubsection{\textcolor{titleColor}{
+                \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
+                \subsubquestionPreText #1
+            }}
+    \end{tcolorbox}
+}
 
 
 %% environs
