@@ -2,12 +2,10 @@
 
 <img src="./img/showcase-firstpage.jpg" width="401"  alt="first page of showcase.pdf" style="float: right;margin-left: 20px; margin-bottom: 20px;" align="right">
 
-This is the style I use in my homeworks. You can find visuals [here](./showcase.pdf). Its `tex` is [here](./showcase.tex).
-I thought there wasn't enough latex packages and decided to publish this. 
+This is the style I use in my homeworks. I thought there wasn't enough latex packages and decided to publish this. 
+ 
+You can find visuals [here](./showcase.pdf) and its `.tex` is [here](./showcase.tex).
 
-I'm still learning and honestly have no idea what I'm doing. This repo probably doesn't follow any latex package convensions.
-
-Feel free to open a pull request. 
 
 ## Installation
 
@@ -28,10 +26,7 @@ git rm koray-tex-homework/
 ```latex
 % You need to include this package in your latex file.
 % MAKE SURE YOU'VE SPECIFIED THE PATH CORRECT
-\usepackage{../korays-homework-sty/korayHomework}
-
-% I'd really appricate if you give credit 
-\KoraysHomeworkStyCredit % can be added before \end{document}
+\usepackage{./korays-homework-sty/korayHomework}
 ```
 
 ### Answering questions
@@ -113,13 +108,18 @@ You can overwrite these theme colors
 #### headrule
 
 ```latex
-\def\headrule{\koraysfancyheadrule}
+% you can change it via
+\def\headrule{\hrcrown}
 ```
 
 #### dividers
 
 ```latex
-\ornamento
-\ornamentoL
-\ornamentoR
+\hr
+\hrdotted
+\hrdotteds
+
+\hrflower
+\hrflowerl
+\hrflowerr
 ```
