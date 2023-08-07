@@ -44,15 +44,14 @@
 
 % \hr modified from https://tex.stackexchange.com/a/309862/284448
 \newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\hrulefill}\par}
-\newcommand\hrdotted{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\dotfill}\par}
-
+\newcommand\hrdotted{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\noindent\xleaders\hbox{$\cdot$}\hfill\hbox{}}\par}
+\newcommand\hrdotteds{\par\vspace{-.5\ht\strutbox}\noindent{\color{ornamentoscolor}\dotfill}\par}
 
 \sethlcolor{highlighcolor} % https://tex.stackexchange.com/a/141572
 \newcommand{\hltexttt}[1]{
     % highlight texttt
     \texttt{\hl{\:#1\:}}
 }
-
 
 % this tcbset effects ``\question''s, too.
 \tcbset{on line, boxsep=2.2pt, left=1pt,right=1pt,top=0pt,bottom=0pt,
@@ -91,64 +90,15 @@
 \newcommand{\questionKoray}[1]{\commentPerson{blue}{Question}{Koray}{#1}}
 \newcommand{\noteKoray}[1]{\commentPerson{orange}{Note}{Koray}{#1}}
 
-\newcommand{\KoraysHomeworkStyCredit}{\textcolor{black!70!white}{
-        This documents style is \negmedspace
-        \href{https://github.com/KorayUlusan/korays-homework-sty}{
-            \texttt{https://github.com/KorayUlusan/korays-homework-sty}
-        }
-    }}
-
-
-%% orlementos 
+%% flowers 
 % modified from: https://tex.stackexchange.com/a/74609/284448
-\def\orlementosheadrule{{ % optional change headrule
-            \color{ornamentoscolor}
-            \raisebox{-2.1pt}[10pt][10pt]{\leafright}
-            \hrulefill
-            \
-            \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~}
-            \hrulefill
-            \
-            \raisebox{-2.1pt}[10pt][10pt]{\leafleft}}}
-\newcommand{\ornamentoleft}{\leafright \decofourleft \decothreeleft \aldineright \decotwo \floweroneleft}
-\newcommand{\ornamentoright}{\floweroneright \decotwo \aldineleft \decothreeright \decofourright \leafleft}
-\newcommand{\ornamento} { % ornamento
-    \noindent
-    \textcolor{ornamentoscolor}{
-        \hrulefill
-        \raisebox{-2.5pt}[10pt][10pt]{
-            \ornamentoleft
-            \decoone
-            \ornamentoright
-        }
-        \hrulefill 
-    }\par
-}
-\newcommand{\ornamentoR}{ % ornamento right
-    \noindent
-    \raisebox{1.9pt}[10pt][10pt]{
-        \noindent
-        \textcolor{ornamentoscolor}{
-            \raisebox{-1.9pt}[10pt][10pt]{\leafright}
-            \rule{7.6em}{.4pt} % FIXME \hrulefill doest work with raisebox, this 
-            % rule width is short
-            \raisebox{-1.9pt}[10pt][10pt]{\ornamentoleft \decoone}
-        }
-    }
-}
-\newcommand{\ornamentoL}{ % ornamento left
-    \noindent
-    \raisebox{1.9pt}[10pt][10pt]{
-        \noindent
-        \textcolor{ornamentoscolor}{
-            \raisebox{-1.9pt}[10pt][10pt]{
-                \decoone \ornamentoright
-            }
-            \rule{7.6em}{.4pt}
-            \raisebox{-1.9pt}[10pt][10pt]{\leafleft}
-        }
-    }
-}
+\newcommand{\hrcrown}{{\color{ornamentoscolor} \raisebox{-2.1pt}[10pt][10pt]{\leafright} \hrulefill \ \raisebox{-2.1pt}[10pt][10pt]{~~~\decofourleft \decotwo \decofourright~~~} \hrulefill \ \raisebox{-2.1pt}[10pt][10pt]{\leafleft}}}
+\newcommand{\flowersleft}{\leafleft \decofourleft \decothreeleft \aldineright \decotwo \floweroneleft}
+\newcommand{\flowersright}{\floweroneright \decotwo \aldineleft \decothreeright \decofourright \leafright}
+\newcommand{\hrflower}{\par\textcolor{ornamentoscolor}{\hrulefill\raisebox{-2.5pt}[10pt][10pt]{\ \flowersleft\decoone\flowersright\ }\hrulefill}\par}
+\newcommand{\hrflowerl}{\par\textcolor{ornamentoscolor}{\raisebox{-2.5pt}[10pt][10pt]{\decoone\flowersright}~~\rule{7.6em}{.4pt}~~\raisebox{-2.5pt}[10pt][10pt]{\leafleft}}\par}
+\newcommand{\hrflowerr}{\par\textcolor{ornamentoscolor}{\raisebox{-2.5pt}[10pt][10pt]{\leafright}~~\rule{7.6em}{.4pt}~~\raisebox{-2.5pt}[10pt][10pt]{\ \flowersleft\decoone}}\par}
+
 \pdfstringdefDisableCommands{
 % https://tex.stackexchange.com/a/330980
 \def\\{}
@@ -156,14 +106,12 @@
 \def\uline#1{#1}
 \def\decoone{}
 \def\aldineleft{}
-\def\noIncludeOutline#1{}
+\def\notIncludeOutline#1{}
 }
-\newcommand{\noIncludeOutline}[1]{
-    % This is a workaround for:
-    %       Token not allowed in a PDF string (Unicode): 
-    %       (hyperref) removing `\@ifnextchar'.
-    #1
-}
+% \notIncludeOutline is a workaround for:
+%    Token not allowed in a PDF string (Unicode): 
+%    (hyperref) removing `\@ifnextchar'.
+\newcommand{\notIncludeOutline}[1]{#1}
 
 %% question commands
 
@@ -175,8 +123,8 @@
 \newcommand{\subsubquestionPreText}{}
 
 \newcommand{\question}[1]{
+    \hrflower 
     \needspace{10em}
-    \ornamento 
     \begin{tcolorbox}[
             colframe=decorativeColor,
             colback=themeColor,
@@ -185,7 +133,7 @@
             after skip=1em,
         ]
         \section{\textcolor{titleColor}{
-              \noIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
+              \notIncludeOutline{\,\raisebox{-1pt}[17pt][9pt]{{\huge \decoone}} }
               \uline{\questionPreText #1\questionPostText}
           }}
     \end{tcolorbox}
@@ -202,7 +150,7 @@
             after skip=1em,
         ]
         \subsection{\textcolor{titleColor}{
-                \noIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
+                \notIncludeOutline{\raisebox{1pt}[10pt][3pt]{\aldineleft}}
                 \uline{\subquestionPreText #1\subquestionPostText}
             }}
     \end{tcolorbox}
@@ -222,34 +170,8 @@
             width=0.3\paperwidth,
         ]
         \subsubsection{\textcolor{titleColor}{
-                \noIncludeOutline{\raisebox{0.6pt}{\decotwo}}
+                \notIncludeOutline{\raisebox{0.6pt}{\decotwo}}
                 \subsubquestionPreText #1
             }}
     \end{tcolorbox}
 }
-
-
-%% environs
-% take study notes on latex
-% \RequirePackage{environ}
-% \RequirePackage{mdframed}
-
-% \newif\ifstudynotes
-% \studynotesfalse
-% \DeclareOption{studynotes}{
-%     \studynotestrue
-% }
-
-% \NewEnviron{studynotes}[1][1in]{
-
-%     \ifstudynotes
-%         \vspace{1ex}
-%         \begin{mdframed}
-%             \setlength{\parskip}{\medskipamount}
-%             \sffamily
-%             \BODY
-%         \end{mdframed}
-%         \vspace{1ex}
-%     \else
-%     \fi
-% }
